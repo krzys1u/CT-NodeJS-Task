@@ -1,23 +1,23 @@
 export class UnsupportedMediaType extends Error {
-    constructor() {
-        super('Unsupported Media Type');
+  constructor () {
+    super('Unsupported Media Type')
 
-        this.status = 415;
-    }
+    this.status = 415
+  }
 }
 
 export class MethodNotAllowedError extends Error {
-    constructor() {
-        super('Method not allowed');
+  constructor () {
+    super('Method not allowed')
 
-        this.status = 405;
-    }
+    this.status = 405
+  }
 }
 
 export class NotFound extends Error {
-    constructor() {
-        super('Not Found');
+  constructor () {
+    super('Not Found')
 
-        this.status = 404;
-    }
+    this.status = 404
+  }
 }

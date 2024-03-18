@@ -1,19 +1,28 @@
 import EventEmitter from 'events'
+import type { ReviewChangeEmitterEventPayload } from '@ct-nodejs-task/types'
 
-export const EVENTS = [
-  'ProductReview_ADDED',
-  'ProductReview_MODIFIED',
-  'ProductReview_DELETED'
-]
+export const EVENTS = {
+  CREATED: 'ProductReview_CREATED',
+  MODIFIED: 'ProductReview_MODIFIED',
+  DELETED: 'ProductReview_DELETED'
+}
 
-export const createProductReviewChangeListener = (): EventEmitter => {
+export interface ChangeEmitter {
+  emit: (event: string, payload: ReviewChangeEmitterEventPayload) => void
+}
+
+export const createProductReviewChangeListener = (): ChangeEmitter => {
   const eventEmitter = new EventEmitter()
 
-  EVENTS.forEach((eventName: typeof EVENTS[number]) => {
+  Object.entries(EVENTS).forEach(([_, eventName]) => {
     eventEmitter.on(eventName, (payload) => {
       console.log('action', eventName, payload)
     })
   })
 
-  return eventEmitter
+  return {
+    emit: (event, payload) => {
+      eventEmitter.emit(event, payload)
+    }
+  }
 }

@@ -1,0 +1,13 @@
+POST http://localhost/product-service/reviews
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "doe",
+  "reviewText": "This is my review",
+  "rating": 5,
+  "product": 2
+}
+
+###
+

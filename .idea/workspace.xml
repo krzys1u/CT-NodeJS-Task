@@ -2,19 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4997d7da-a590-410b-9f17-f725f8f378df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/examples/createProduct.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/deleteProduct.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/getOneProduct.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/getProducts.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/updateProduct.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/src/errors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/src/middlewares/instanceIdMiddleware.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/src/middlewares/onlyJSONContentType.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.husky/pre-commit" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.lintstagedrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/createReview.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/deleteReview.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/getProductReviews.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/updateReview.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product-service/src/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/createProduct.http" beforeDir="false" afterPath="$PROJECT_DIR$/examples/createProduct.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/types/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/aspects/productReviewChangeListener.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/aspects/productReviewChangeListener.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/src/controllers/productController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/controllers/productController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/src/controllers/productReviewsController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/controllers/productReviewsController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/middlewares/instanceIdMiddleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/middlewares/instanceIdMiddleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/middlewares/onlyJSONContentType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/middlewares/onlyJSONContentType.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/models/Product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/models/Product.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/src/models/Review.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/models/Review.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,30 +58,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/kstozek/IdeaProjects/CT-NodeJS-Task/examples",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "nodejs_package_manager_path": "yarn",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/Users/kstozek/IdeaProjects/CT-NodeJS-Task/node_modules/typescript/lib"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kstozek/IdeaProjects/CT-NodeJS-Task/examples&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/kstozek/IdeaProjects/CT-NodeJS-Task/node_modules/typescript/lib&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ],
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JavaScript&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/examples" />
@@ -82,11 +94,20 @@
       <recent name="$PROJECT_DIR$/services/review-processing-service/src" />
     </key>
   </component>
-  <component name="RunManager" selected="HTTP Request.All in getProducts">
-    <configuration name="All in getProducts" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/examples/getProducts.http">
+  <component name="RunManager" selected="HTTP Request.createReview | #1">
+    <configuration name="All in updateReview" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/examples/updateReview.http">
       <method v="2" />
     </configuration>
-    <configuration name="getProducts | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/examples/getProducts.http" requestIdentifier="#1" runType="Run single request">
+    <configuration name="createProduct | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/examples/createProduct.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="createReview | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/examples/createReview.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="deleteReview | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/examples/deleteReview.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="updateReview | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/examples/updateReview.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
@@ -104,8 +125,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.getProducts | #1" />
-        <item itemvalue="HTTP Request.All in getProducts" />
+        <item itemvalue="HTTP Request.createReview | #1" />
+        <item itemvalue="HTTP Request.createProduct | #1" />
+        <item itemvalue="HTTP Request.deleteReview | #1" />
+        <item itemvalue="HTTP Request.updateReview | #1" />
+        <item itemvalue="HTTP Request.All in updateReview" />
       </list>
     </recent_temporary>
   </component>
@@ -126,40 +150,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/packages/types/index.js" />
-        <option value="$PROJECT_DIR$/packages/types/types.js" />
-        <option value="$PROJECT_DIR$/packages/types/types.js.map" />
-        <option value="$PROJECT_DIR$/packages/types/index.js.map" />
-        <option value="$PROJECT_DIR$/temp/MyProject/src/data-source.js.map" />
-        <option value="$PROJECT_DIR$/temp/MyProject/src/index.js" />
-        <option value="$PROJECT_DIR$/temp/MyProject/src/data-source.js" />
-        <option value="$PROJECT_DIR$/temp/MyProject/src/index.js.map" />
-        <option value="$PROJECT_DIR$/services/product-service/src/index.js" />
-        <option value="$PROJECT_DIR$/services/product-service/src/app.js" />
-        <option value="$PROJECT_DIR$/services/product-service/src/app.js.map" />
-        <option value="$PROJECT_DIR$/services/product-service/src/index.js.map" />
-        <option value="$PROJECT_DIR$/services/review-processing-service/src/index.js" />
-        <option value="$PROJECT_DIR$/services/review-processing-service/src/app.js" />
-        <option value="$PROJECT_DIR$/services/review-processing-service/src/app.js.map" />
-        <option value="$PROJECT_DIR$/services/review-processing-service/src/index.js.map" />
-        <option value="$PROJECT_DIR$/temp/MyProject/src/entity/User.js.map" />
-        <option value="$PROJECT_DIR$/temp/MyProject/src/entity/User.js" />
-        <option value="$PROJECT_DIR$/services/product-service/src/db/data-source.js.map" />
-        <option value="$PROJECT_DIR$/services/product-service/src/db/data-source.js" />
-        <option value="$PROJECT_DIR$/services/product-service/src/models/Product.js.map" />
-        <option value="$PROJECT_DIR$/services/product-service/src/models/Review.js.map" />
-        <option value="$PROJECT_DIR$/services/product-service/src/models/Review.js" />
-        <option value="$PROJECT_DIR$/services/product-service/src/models/Product.js" />
-        <option value="$PROJECT_DIR$/services/product-service/src/aspects/productReviewChangeListener.js.map" />
-        <option value="$PROJECT_DIR$/services/product-service/src/aspects/productReviewChangeListener.js" />
-        <option value="$PROJECT_DIR$/services/product-service/src/controllers/productReviewsController.js.map" />
-        <option value="$PROJECT_DIR$/services/product-service/src/controllers/productController.js" />
-        <option value="$PROJECT_DIR$/services/product-service/src/controllers/productReviewsController.js" />
-        <option value="$PROJECT_DIR$/services/product-service/src/controllers/productController.js.map" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ID_ORDER">

@@ -1,0 +1,12 @@
+PATCH http://localhost/product-service/reviews/1
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "doe",
+  "reviewText": "This is my review - changed",
+  "rating": 5
+}
+
+###
+

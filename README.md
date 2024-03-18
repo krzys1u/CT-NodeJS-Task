@@ -54,3 +54,19 @@ I've decided to implement deleting records from database, for future it would be
 better to implement soft deletion with another column which determines if object in
 database is deleted or not
 
+## This controllers
+Controllers should have only logic of getting parameters, calling some logic grouped
+for example in service and return value, i've decided to write this logic in controllers
+as there are simple actions using ORM but it's definitely something that i would change
+if i will decide to develop this project further and make it production
+ready
+
+## Handling of ORM errors in controllers
+I assumed that this application is intended to run only in local env so i didn't focus
+on handling processing errors in orm, ideally each controller should be wrapped withing
+try-catch and have an error handling for all ORM issues
+
+## Docker optimisation
+Currently each microservice has dependency install step during image building
+I think there is a room to improvement using multistep build or some monorepo
+features to install dependencies only once 

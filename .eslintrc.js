@@ -22,5 +22,7 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
+        "@typescript-eslint/no-namespace": "off",
+        "@typescript-eslint/no-misused-promises": "off"
     }
 }

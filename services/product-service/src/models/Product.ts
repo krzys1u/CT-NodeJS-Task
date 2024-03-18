@@ -4,21 +4,21 @@ import { Review } from './Review'
 
 @Entity()
 export class Product implements IProduct {
-    @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn()
     id!: number
 
-    @Column()
+  @Column()
     name!: string
 
-    @Column()
+  @Column()
     description!: string
 
-    @Column()
+  @Column()
     price!: number
 
-    @OneToMany(() => Review, (review) => review.product) // note: we will create author property in the Photo class below
+  @OneToMany(() => Review, (review) => review.product) // note: we will create author property in the Photo class below
     reviews!: Review[]
 
-    @Column()
+  @Column()
     averageRating!: number
 }

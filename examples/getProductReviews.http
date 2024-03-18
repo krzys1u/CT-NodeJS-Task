@@ -1,0 +1,5 @@
+GET http://localhost/product-service/products/2/reviews
+Content-Type: application/json
+
+###
+

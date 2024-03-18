@@ -1,17 +1,15 @@
-import {Router} from 'express'
+import { Router } from 'express'
 import { type DataSource } from 'typeorm'
-import {Product} from "../models/Product";
-import {MethodNotAllowedError, NotFound} from "../errors";
-
-const generateLinkForProduct = (path: string, id: number) => {
-  return `${path}/${id}`;
-}
+import { Product } from '../models/Product'
+import { MethodNotAllowedError, NotFound } from '../errors'
+import { generateLinkForResource } from '../utils'
+import { Review } from '../models/Review'
 
 export const createProductController = (db: DataSource): Router => {
   const router = Router()
 
   router.post('/', async (req, res) => {
-    const {name, description, price} = req.body;
+    const { name, description, price } = req.body
 
     const productRepository = db.getRepository(Product)
 
@@ -20,81 +18,102 @@ export const createProductController = (db: DataSource): Router => {
       description,
       price,
       averageRating: 0,
-      reviews: [],
+      reviews: []
     })
 
-    const newProduct = await productRepository.save(product);
+    const newProduct = await productRepository.save(product)
 
-    res.status(201);
-    res.setHeader('location', generateLinkForProduct(req.baseUrl, newProduct.id));
-    res.send(newProduct);
-  });
+    res.status(201)
+    res.setHeader('location', generateLinkForResource(req.baseUrl, newProduct.id))
+    res.send(newProduct)
+  })
 
   router.get('/', async (req, res) => {
     const productRepository = db.getRepository(Product)
 
-    const products = await productRepository.find();
+    const products = await productRepository.find()
 
-    res.status(200);
-    res.send(products);
-  });
+    res.status(200)
+    res.send(products)
+  })
 
   router.get('/:id', async (req, res, next) => {
-    const id = parseInt(req.params.id);
+    const id = parseInt(req.params.id)
 
     const productRepository = db.getRepository(Product)
 
-    const product = await productRepository.findOneBy({id});
+    const product = await productRepository.findOneBy({ id })
 
-    if(!product) {
-      return next(new NotFound());
+    if (product === null) {
+      next(new NotFound()); return
     }
 
-    res.status(200);
-    res.send(product);
-  });
+    res.status(200)
+    res.send(product)
+  })
 
   router.delete('/:id', async (req, res, next) => {
-    const id = parseInt(req.params.id);
+    const id = parseInt(req.params.id)
 
     const productRepository = db.getRepository(Product)
 
-    const product = await productRepository.findOneBy({id});
+    const product = await productRepository.findOneBy({ id })
 
-    if(!product) {
-      return next(new NotFound());
+    if (product === null) {
+      next(new NotFound()); return
     }
 
-    await productRepository.delete(product);
+    await productRepository.delete(product)
 
-    res.sendStatus(200);
+    res.sendStatus(200)
   })
 
   router.patch('/:id', async (req, res, next) => {
-    const id = parseInt(req.params.id);
-    const body = req.body;
+    const id = parseInt(req.params.id)
+    const body = req.body
 
     const productRepository = db.getRepository(Product)
 
-    const product = await productRepository.findOneBy({id});
+    const product = await productRepository.findOneBy({ id })
 
-    if(!product) {
-      return next(new NotFound());
+    if (product === null) {
+      next(new NotFound()); return
     }
 
-    const newProduct = await productRepository.save({id, ...body});
+    const newProduct = await productRepository.save({ id, ...body })
 
-    res.status(200);
+    res.status(200)
     res.send({
       ...product,
-      ...newProduct,
-    });
-  });
+      ...newProduct
+    })
+  })
 
-  router.get(':id/reviews', () => {})
+  router.get('/:id/reviews', async (req, res, next) => {
+    const id = parseInt(req.params.id)
+
+    const productRepository = db.getRepository(Product)
+
+    const product = await productRepository.findOneBy({ id })
+
+    if (product === null) {
+      next(new NotFound()); return
+    }
+
+    const reviewRepository = db.getRepository(Review)
+
+    const reviews = await reviewRepository.find({
+      where: {
+        product
+      }
+    })
+
+    res.status(200)
+    res.send(reviews)
+  })
 
   router.use('', () => {
-    throw new MethodNotAllowedError();
+    throw new MethodNotAllowedError()
   })
 
   return router

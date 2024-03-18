@@ -1,24 +1,25 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, type Relation} from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, type Relation, JoinColumn } from 'typeorm'
 import type { ProductReview } from '@ct-nodejs-task/types'
 import { Product } from './Product'
 
 @Entity()
 export class Review implements ProductReview {
-    @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn()
     id!: number
 
-    @Column()
+  @Column()
     firstName!: string
 
-    @Column()
+  @Column()
     lastName!: string
 
-    @Column()
+  @Column()
     reviewText!: string
 
-    @Column()
+  @Column()
     rating!: number
 
-    @ManyToOne(() => Product, (product) => product.reviews, { onDelete: 'CASCADE' })
+  @ManyToOne(() => Product, (product) => product.reviews, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'productId' })
     product!: Relation<Product>
 }

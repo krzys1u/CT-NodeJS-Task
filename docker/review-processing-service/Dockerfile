@@ -9,9 +9,9 @@ RUN apk add --update \
 
 COPY . .
 
-RUN yarn --immutable
+RUN npm ci #--workspace @ct-nodejs-task/review-processing-service
 
-RUN yarn run build && yarn workspaces focus --production
+RUN npm run build --workspace @ct-nodejs-task/review-processing-service
 
 FROM node:20-alpine
 LABEL name "ct-nodejs-task review-processing-service"

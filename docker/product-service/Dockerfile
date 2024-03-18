@@ -9,9 +9,9 @@ RUN apk add --update \
 
 COPY . .
 
-RUN yarn --immutable
+RUN npm ci #--workspace @ct-nodejs-task/product-service
 
-RUN yarn run build && yarn workspaces focus --production
+RUN npm run build --workspace @ct-nodejs-task/product-service
 
 FROM node:20-alpine
 LABEL name "ct-nodejs-task product-service"

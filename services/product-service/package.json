@@ -1,28 +1,29 @@
 {
-	"$schema": "http://json.schemastore.org/package",
-	"name": "@ct-nodejs-task/product-service",
-	"description": "Product microservice",
-	"type": "module",
-	"main": "./dist/index.js",
-	"version": "0.1.0",
-	"scripts": {
-		"lint": "eslint src --ext .ts",
-		"build": "tsc"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/krzys1u/CT-NodeJS-Task"
-	},
-	"author": "krzys1u",
-	"bugs": {
-		"url": "https://github.com/krzys1u/CT-NodeJS-Task/issues"
-	},
-	"homepage": "https://github.com/krzys1u/CT-NodeJS-Task#readme",
-	"devDependencies": {
-		"@types/node": "^20.9.0",
-		"typescript": "^5.2.2"
-	},
-	"dependencies": {
-		"tslib": "^2.6.2"
-	}
+  "$schema": "http://json.schemastore.org/package",
+  "name": "@ct-nodejs-task/product-service",
+  "description": "Product microservice",
+  "type": "module",
+  "main": "./dist/index.js",
+  "version": "0.1.0",
+  "scripts": {
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "build": "tsc && tsc-alias"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krzys1u/CT-NodeJS-Task"
+  },
+  "author": "krzys1u",
+  "bugs": {
+    "url": "https://github.com/krzys1u/CT-NodeJS-Task/issues"
+  },
+  "homepage": "https://github.com/krzys1u/CT-NodeJS-Task#readme",
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "tslib": "^2.6.2"
+  }
 }

@@ -1,39 +1,47 @@
 {
-	"name": "ct-nodejs-task",
-	"description": "Recruitment task for CT",
-	"packageManager": "yarn@4.0.1",
-	"private": true,
-	"version": "0.1.0",
-	"workspaces": [
-		"services/**"
-	],
-	"author": {
-		"name": "Krzysztof Stożek",
-		"email": "stozekrzysztof@gmail.com"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/krzys1u/CT-NodeJS-Task"
-	},
-	"bugs": {
-		"url": "https://github.com/krzys1u/CT-NodeJS-Taskissues"
-	},
-	"homepage": "https://github.com/krzys1u/CT-NodeJS-Task",
-	"scripts": {
-		"lint": "turbo run lint && prettier --check .",
-		"test": "turbo run test",
-		"build": "turbo run build",
-		"format": "prettier --write .",
-		"update": "yarn upgrade-interactive"
-	},
-	"devDependencies": {
-		"@vitest/coverage-v8": "^0.34.6",
-		"eslint": "^8.53.0",
-		"eslint-config-neon": "^0.1.57",
-		"prettier": "^3.0.3",
-		"prettier-eslint": "^16.1.2",
-		"turbo": "1.10.16",
-		"typescript": "^5.2.2",
-		"vitest": "^0.34.6"
-	}
+  "name": "ct-nodejs-task",
+  "description": "Recruitment task for CT",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "services/**"
+  ],
+  "author": {
+    "name": "Krzysztof Stożek",
+    "email": "stozekrzysztof@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krzys1u/CT-NodeJS-Task"
+  },
+  "bugs": {
+    "url": "https://github.com/krzys1u/CT-NodeJS-Taskissues"
+  },
+  "homepage": "https://github.com/krzys1u/CT-NodeJS-Task",
+  "scripts": {
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "build": "turbo run build",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@vitest/coverage-v8": "^0.34.6",
+    "eslint": "^8.57.0",
+    "eslint-config-standard-with-typescript": "^43.0.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "prettier": "^3.0.3",
+    "prettier-eslint": "^16.1.2",
+    "tsc-alias": "^1.8.8",
+    "turbo": "1.10.16",
+    "typescript": "^5.4.2"
+  }
 }

@@ -1,23 +1,31 @@
 {
-	"compilerOptions": {
-		"strict": true,
-		"alwaysStrict": true,
-		"moduleResolution": "node",
-		"removeComments": true,
-		"pretty": true,
-		"module": "ESNext",
-		"target": "ES2020",
-		"lib": ["ESNext"],
-		"sourceMap": true,
-		"incremental": true,
-		"skipLibCheck": true,
-		"noEmitHelpers": true,
-		"importHelpers": true,
-		"esModuleInterop": true,
-		"noUncheckedIndexedAccess": true,
-		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true,
-		"noImplicitOverride": true,
-		"verbatimModuleSyntax": true
-	}
+  "compilerOptions": {
+    "strict": true,
+    "alwaysStrict": true,
+    "moduleResolution": "node",
+    "removeComments": true,
+    "pretty": true,
+    "module": "ESNext",
+    "target": "ES2020",
+    "lib": ["ESNext"],
+    "sourceMap": true,
+    "incremental": true,
+    "skipLibCheck": true,
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "noUncheckedIndexedAccess": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noImplicitOverride": true,
+    "verbatimModuleSyntax": true
+  },
+  "tsc-alias": {
+    "verbose": false,
+    "resolveFullPaths": true,
+    "fileExtensions": {
+      "inputGlob": "{js,jsx,mjs}",
+      "outputCheck": ["js", "json", "jsx", "mjs"]
+    }
+  }
 }

@@ -2,42 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4997d7da-a590-410b-9f17-f725f8f378df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CT-NodeJS-Task.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/types/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/types/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/src/app.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/src/aspects/productReviewChangeListener.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/src/controllers/productController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/src/controllers/productReviewsController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/src/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/review-processing-service/src/app.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/product-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/product-service/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/review-processing-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/review-processing-service/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/tsconfig.eslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/tsconfig.eslint.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/review-processing-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/services/review-processing-service/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/review-processing-service/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/review-processing-service/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/review-processing-service/tsconfig.eslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/services/review-processing-service/tsconfig.eslint.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/review-processing-service/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/services/review-processing-service/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.eslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.eslint.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turbo.json" beforeDir="false" afterPath="$PROJECT_DIR$/turbo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vitest.config.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +55,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "/Users/kstozek/IdeaProjects/CT-NodeJS-Task/node_modules/typescript/lib"
   }
 }]]></component>
@@ -125,7 +94,7 @@
       <workItem from="1710711668722" duration="1831000" />
       <workItem from="1710713513580" duration="21000" />
       <workItem from="1710713550100" duration="124000" />
-      <workItem from="1710713676607" duration="9457000" />
+      <workItem from="1710713676607" duration="10781000" />
     </task>
     <servers />
   </component>

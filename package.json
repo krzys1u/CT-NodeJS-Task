@@ -21,8 +21,7 @@
   "scripts": {
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
-    "build": "turbo run build",
-    "format": "prettier --write ."
+    "build": "turbo run build"
   },
   "dependencies": {
     "dotenv": "^16.4.5",

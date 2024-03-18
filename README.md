@@ -13,6 +13,7 @@ This application is a simple monorepo with two microservices:
 - NGINX as loadbalancer
 
 # How to run
+copy `example.env` and name it `.env` then run
 `docker compose up` - this command will setup containers and run microservices
 Microservices will be available under `localhost` at `80` port
 - `http://localhost/product-services` is url of *Product Service*
@@ -24,3 +25,4 @@ Each microservice is running in 2 instances
 - `npm run lint` - lint codebase
 - `npm run lint:fix` - lint with fix of fixable problems
 - `npm run build` - transpile TS to JS
+

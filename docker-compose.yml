@@ -3,7 +3,7 @@ version: "3.7"
 services:
   product-service:
     ports:
-      - "3000-3001:${PRODUCT_SERVICE_PORT}"
+      - "3000-3001:${SERVICE_PORT}"
     build:
       context: ./
       dockerfile: docker/product-service/Dockerfile
@@ -14,7 +14,7 @@ services:
 
   review-processing-service:
     ports:
-      - "4000-4001:${REVIEW_PROCESSING_SERVICE_PORT}"
+      - "4000-4001:${SERVICE_PORT}"
     build:
       context: ./
       dockerfile: docker/review-processing-service/Dockerfile

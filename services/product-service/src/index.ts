@@ -13,6 +13,6 @@ const productReviewChangeListener = createProductReviewChangeListener()
 
 const app = createApp({}, productReviewChangeListener)
 
-app.listen(process.env.PRODUCT_SERVICE_PORT, function () {
-  console.log(`[${instanceId}] Product service app is listening on port ${process.env.PRODUCT_SERVICE_PORT}!`)
+app.listen(process.env.SERVICE_PORT, function () {
+  console.log(`[${instanceId}] Product service app is listening on port ${process.env.SERVICE_PORT}!`)
 })

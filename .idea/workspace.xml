@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4997d7da-a590-410b-9f17-f725f8f378df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/example.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example.env" beforeDir="false" afterPath="$PROJECT_DIR$/example.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/review-processing-service/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/review-processing-service/src/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +95,7 @@
       <workItem from="1710711668722" duration="1831000" />
       <workItem from="1710713513580" duration="21000" />
       <workItem from="1710713550100" duration="124000" />
-      <workItem from="1710713676607" duration="11489000" />
+      <workItem from="1710713676607" duration="11624000" />
     </task>
     <servers />
   </component>

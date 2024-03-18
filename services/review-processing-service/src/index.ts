@@ -10,6 +10,6 @@ process.env.CT_INSTANCE_ID = instanceId
 
 const app = createApp()
 
-app.listen(process.env.REVIEW_PROCESSING_SERVICE_PORT, function () {
-  console.log(`[${instanceId}] Review processing service app is listening on port ${process.env.REVIEW_PROCESSING_SERVICE_PORT}!`)
+app.listen(process.env.SERVICE_PORT, function () {
+  console.log(`[${instanceId}] Review processing service app is listening on port ${process.env.SERVICE_PORT}!`)
 })

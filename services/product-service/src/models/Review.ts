@@ -19,6 +19,6 @@ export class Review implements ProductReview {
     @Column()
     rating!: number
 
-  @ManyToOne(() => Product, (product) => product.reviews)
+    @ManyToOne(() => Product, (product) => product.reviews, { onDelete: 'CASCADE' })
     product!: Relation<Product>
 }

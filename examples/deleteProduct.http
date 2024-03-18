@@ -1,0 +1,5 @@
+DELETE http://localhost/product-service/products/4
+Content-Type: application/json
+
+###
+

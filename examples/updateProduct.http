@@ -1,0 +1,10 @@
+PATCH http://localhost/product-service/products/9
+Content-Type: application/json
+
+{
+  "price": 55,
+  "description": "new description"
+}
+
+###
+

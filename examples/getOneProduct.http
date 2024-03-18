@@ -1,0 +1,5 @@
+GET http://localhost/product-service/products/1
+Content-Type: application/json
+
+###
+

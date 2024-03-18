@@ -1,0 +1,11 @@
+POST http://localhost/product-service/products
+Content-Type: application/json
+
+{
+  "name": "John",
+  "description": "Some Description",
+  "price": 123
+}
+
+###
+

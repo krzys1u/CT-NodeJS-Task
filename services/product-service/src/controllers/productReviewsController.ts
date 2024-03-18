@@ -9,7 +9,7 @@ export const createProductReviewsController = (db: DataSource, productReviewChan
   router.post('/', () => {})
 
   router.delete('/:id', () => {})
-  router.put('/:id', () => {})
+  router.patch('/:id', () => {})
 
   return router
 }

@@ -5,11 +5,15 @@ import { createProductReviewsController } from './controllers/productReviewsCont
 import { type DataSource } from 'typeorm'
 import { Product } from './models/Product'
 import { Review } from './models/Review'
+import {instanceIdMiddleware} from "./middlewares/instanceIdMiddleware";
+import {onlyJSONContentType} from "./middlewares/onlyJSONContentType";
 
 export const createApp = (db: DataSource, productReviewChangeListener: EventEmitter): Express => {
   const app = express()
 
   app.use(express.json())
+  app.use(instanceIdMiddleware);
+  app.use(onlyJSONContentType);
 
   const productController = createProductController(db)
   const productReviewsController = createProductReviewsController(db, productReviewChangeListener)
@@ -60,7 +64,7 @@ export const createApp = (db: DataSource, productReviewChangeListener: EventEmit
 
   app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
     res.status(err.status ?? 500)
-    res.json({ message: err.message, error: err.stack })
+    res.json({ message: err.message })
   })
 
   return app

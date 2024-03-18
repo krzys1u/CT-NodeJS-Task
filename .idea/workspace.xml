@@ -2,30 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4997d7da-a590-410b-9f17-f725f8f378df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/types/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/types/tsconfig.eslint.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/types/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/src/config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/src/db/data-source.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/src/models/Product.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/src/models/Review.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/src/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/createProduct.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/deleteProduct.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/getOneProduct.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/getProducts.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/updateProduct.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product-service/src/errors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product-service/src/middlewares/instanceIdMiddleware.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product-service/src/middlewares/onlyJSONContentType.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example.env" beforeDir="false" afterPath="$PROJECT_DIR$/example.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/types/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/types/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/types/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/app.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/src/controllers/productController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/controllers/productController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/src/controllers/productReviewsController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/controllers/productReviewsController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/types.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/models/Review.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/models/Review.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +55,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/kstozek/IdeaProjects/CT-NodeJS-Task/packages/types",
+    "last_opened_file_path": "/Users/kstozek/IdeaProjects/CT-NodeJS-Task/examples",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -85,14 +75,20 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/examples" />
       <recent name="$PROJECT_DIR$/packages/types" />
       <recent name="$PROJECT_DIR$/services/product-service/src/models" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/services/review-processing-service/src" />
-      <recent name="$PROJECT_DIR$/services/product-service/src/controllers" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="HTTP Request.All in getProducts">
+    <configuration name="All in getProducts" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/examples/getProducts.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="getProducts | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/examples/getProducts.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="CT-NodeJS-Task" />
       <method v="2">
@@ -106,6 +102,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.getProducts | #1" />
+        <item itemvalue="HTTP Request.All in getProducts" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -118,7 +120,7 @@
       <workItem from="1710711668722" duration="1831000" />
       <workItem from="1710713513580" duration="21000" />
       <workItem from="1710713550100" duration="124000" />
-      <workItem from="1710713676607" duration="21319000" />
+      <workItem from="1710713676607" duration="28064000" />
     </task>
     <servers />
   </component>

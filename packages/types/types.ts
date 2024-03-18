@@ -13,4 +13,5 @@ export interface ProductReview {
   lastName: string;
   reviewText: string;
   rating: number;
+  product: Product;
 }

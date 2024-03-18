@@ -8,7 +8,8 @@
   "scripts": {
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
-    "build": "tsc && tsc-alias"
+    "build": "tsc && tsc-alias",
+    "typeorm": "typeorm-ts-node-commonjs"
   },
   "repository": {
     "type": "git",
@@ -21,9 +22,13 @@
   "homepage": "https://github.com/krzys1u/CT-NodeJS-Task#readme",
   "devDependencies": {
     "@types/node": "^20.9.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "ts-node": "10.9.1"
   },
   "dependencies": {
-    "tslib": "^2.6.2"
+    "tslib": "^2.6.2",
+    "typeorm": "0.3.20",
+    "reflect-metadata": "^0.1.13",
+    "pg": "^8.4.0"
   }
 }

@@ -6,6 +6,11 @@
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "scripts": {
+    "lint": "eslint src --ext .ts",
+    "build": "tsc",
+    "test": "vitest run"
+  },
   "devDependencies": {
     "@types/node": "^20.9.0",
     "typescript": "^5.2.2"

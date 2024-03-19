@@ -1,4 +1,5 @@
 import express, { type Express } from 'express'
+import * as OpenApiValidator from 'express-openapi-validator'
 import { createProductController } from './controllers/productController'
 import { createProductReviewsController } from './controllers/productReviewsController'
 import { type DataSource } from 'typeorm'
@@ -16,7 +17,14 @@ export const createApp = (db: DataSource, productReviewChangeListener: ChangeEmi
   const productController = createProductController(db)
   const productReviewsController = createProductReviewsController(db, productReviewChangeListener)
 
-  app.get('/', (_, res) => res.send(`[${process.env.CT_INSTANCE_ID}] Hello from Product Service`))
+  app.use(
+    OpenApiValidator.middleware({
+      apiSpec: './services/product-service/api.json',
+      validateRequests: true,
+      validateResponses: true,
+      validateSecurity: false
+    })
+  )
 
   app.use('/products', productController)
   app.use('/reviews', productReviewsController)

@@ -23,6 +23,7 @@ module.exports = {
     },
     "rules": {
         "@typescript-eslint/no-namespace": "off",
-        "@typescript-eslint/no-misused-promises": "off"
+        "@typescript-eslint/no-misused-promises": "off",
+        "@typescript-eslint/no-non-null-assertion": "off"
     }
 }

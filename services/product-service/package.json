@@ -29,6 +29,7 @@
     "tslib": "^2.6.2",
     "typeorm": "0.3.20",
     "reflect-metadata": "^0.1.13",
-    "pg": "^8.4.0"
+    "pg": "^8.4.0",
+    "express-openapi-validator": "^4.9.0"
   }
 }

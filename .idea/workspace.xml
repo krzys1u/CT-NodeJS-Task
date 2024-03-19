@@ -2,29 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4997d7da-a590-410b-9f17-f725f8f378df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.husky/pre-commit" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.lintstagedrc.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/createReview.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/deleteReview.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/getProductReviews.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/updateReview.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/src/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product-service/api.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/createProduct.http" beforeDir="false" afterPath="$PROJECT_DIR$/examples/createProduct.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/types/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/types/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/types/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/aspects/productReviewChangeListener.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/aspects/productReviewChangeListener.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/controllers/productController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/controllers/productController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/src/controllers/productReviewsController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/controllers/productReviewsController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/errors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/middlewares/instanceIdMiddleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/middlewares/instanceIdMiddleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/middlewares/onlyJSONContentType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/middlewares/onlyJSONContentType.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/models/Product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/models/Product.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/models/Review.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/models/Review.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,14 +81,14 @@
       <recent name="$PROJECT_DIR$/services/review-processing-service/src" />
     </key>
   </component>
-  <component name="RunManager" selected="HTTP Request.createReview | #1">
-    <configuration name="All in updateReview" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$PROJECT_DIR$/examples/updateReview.http">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="HTTP Request.createProduct | #1">
     <configuration name="createProduct | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/examples/createProduct.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="createReview | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/examples/createReview.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="deleteProduct | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/examples/deleteProduct.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="deleteReview | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/examples/deleteReview.http" requestIdentifier="#1" runType="Run single request">
@@ -123,13 +110,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="SwaggerCodegen">
+      <option name="activeConfigurationType" value="FILE" />
+      <option name="configurationPath" value="" />
+      <option name="customJreEnabled" value="false" />
+      <option name="customTemplatesPath" value="" />
+      <option name="enableDebugLogging" value="false" />
+      <option name="generateToPath" value="$PROJECT_DIR$/gen" />
+      <option name="generationParameters">
+        <list />
+      </option>
+      <option name="generatorPath" value="https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/5.0.0/openapi-generator-cli-5.0.0.jar" />
+      <option name="jdkPath" value="" />
+      <option name="language" value="java" />
+      <option name="specificationPath" value="$PROJECT_DIR$/services/product-service/api.json" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.createReview | #1" />
         <item itemvalue="HTTP Request.createProduct | #1" />
+        <item itemvalue="HTTP Request.deleteProduct | #1" />
+        <item itemvalue="HTTP Request.createReview | #1" />
         <item itemvalue="HTTP Request.deleteReview | #1" />
         <item itemvalue="HTTP Request.updateReview | #1" />
-        <item itemvalue="HTTP Request.All in updateReview" />
       </list>
     </recent_temporary>
   </component>

@@ -1,21 +1,79 @@
 # CT-NodeJS-Task
+The goal of this project is to create two microservices to allow storing product info and product reviews
+in database and recalculate average rating of products once new reviews are added to system.
+
+
+
 
 # Description
 This application is a simple monorepo with two microservices:
-- product-service - @todo update description
-- review-processing-service - @todo update description
+
+## product-serivce
+This is a service which provides api for managing products and reviews 
+Requirements:
+- RESTful API for products with create, delete, edit, list and get by
+  identifier actions
+- product information should not return reviews, only average
+  product rating
+- RESTful API for reviews with create, delete and edit actions
+- Endpoints to show product reviews
+- Service should notify review service when new review is added,
+  modified or deleted
+
+## review-processing-service 
+This microservice is responsible for recalculation of products average rating
+Requirements:
+- Service receives events from product service
+- Each time review is received, it calculates average rating and stores it
+  into persistent storage
+- Running in 2 separate instances
+- Service must be able to process multiple events concurrently
+
+# Project decisions
+- I've decided to create separate endpoints root for product reviews because there is a separate 
+requirement to do API for products and for reviews, 
+- In future i would consider to move reviews endpoint as a sub-path of `/products` 
+It would allow us to do not pass review ID in request body but pass it as path parameter
+- I've decided to implement endpoint to show product reviews as part or `/products` route as it fits well here
+- I've decided to do not store rating in separate table but along with product
+- There is no database for `review-processing-service` all data is strored in database owned bv `product-service`
+- Rating calculation process contain three steps
+    - Get all ratings for product
+    - Calculate average rating
+    - Save rating to product table in `product-service` database
 
 # Used technologies
 - nodeJS
+- Express
 - TypeScript
 - Eslint
 - Docker & Docker compose
 - NGINX as loadbalancer
+- TypeORM
+- Postgres
+- OpenApi schema validation
 
 # Project structure
+Project is a monorepo which contains one shared package with types and two services
+
+```
+- /docker - docker images
+- /examples - example http requests to run 
+- /nginx - nginx configuration
+- /packages - shared packages
+    - /types - shared types
+- /services
+    - /product-service
+        - /aspects - aspects - used to handle async resources lifecycle actions
+        - /controllers - controllers
+        - /db - database
+        - /middleware - express middlewares
+        - /models - database models
+    - /review-processing-service
+```
 
 # Api Schema
-
+Api schema is defined in `api.json` file it's used to validate requests and responses
 
 
 # How to run

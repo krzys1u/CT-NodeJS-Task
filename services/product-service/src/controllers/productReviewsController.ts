@@ -61,7 +61,7 @@ export const createProductReviewsController = (db: DataSource, productReviewChan
       next(new NotFound()); return
     }
 
-    const review = reviews[0]
+    const review = reviews[0]!
 
     await reviewRepository.delete(review)
 
@@ -95,7 +95,7 @@ export const createProductReviewsController = (db: DataSource, productReviewChan
       next(new NotFound()); return
     }
 
-    const review = reviews[0]
+    const review = reviews[0]!
 
     const newReview = await reviewRepository.save({
       id,

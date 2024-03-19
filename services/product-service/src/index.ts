@@ -5,8 +5,6 @@ import { createDataSource } from './db/data-source'
 
 import { config } from './config'
 
-process.env.CT_INSTANCE_ID = config.instanceId
-
 const productReviewChangeListener = createProductReviewChangeListener()
 
 const dataSource = createDataSource(config.database)

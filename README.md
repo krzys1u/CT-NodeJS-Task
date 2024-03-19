@@ -52,6 +52,7 @@ It would allow us to do not pass review ID in request body but pass it as path p
 - TypeORM
 - Postgres
 - OpenApi schema validation
+- Vitest
 
 # Project structure
 Project is a monorepo which contains one shared package with types and two services
@@ -87,6 +88,18 @@ There is a interactive api docs available under `http://localhost/product-servic
 
 Each microservice is running in 2 instances there is a header `x-instance-id` returned with each request
 to check which instance handled request
+
+# Tests
+To run tests first you need to run all containers using command `docker compose up -d `
+After that run `npm run test`
+
+I've decided to don't write unit tests as we have almost no logic in our product,
+We just get request from user, validate it using open api after that we call ORM and return value
+I believe ORM and validation library is well tested as well as express.
+
+I've written few e2e tests which just call endpoints and check results,
+Tests are self cleaning but before production deployment i would suggest to prevent from running it in other envs than local
+
 
 # Commands
 - `npm run lint` - lint codebase

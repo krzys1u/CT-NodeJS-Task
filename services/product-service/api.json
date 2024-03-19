@@ -20,11 +20,11 @@
   ],
   "servers": [
     {
-      "url": "http://localhost/product-service"
+      "url": "/"
     }
   ],
   "paths": {
-    "/products": {
+    "/product-service/products": {
       "get": {
         "tags": [
           "products"
@@ -76,7 +76,7 @@
         "parameters": []
       }
     },
-    "/products/{id}": {
+    "/product-service/products/{id}": {
       "get": {
         "tags": [
           "products"
@@ -217,7 +217,7 @@
         ]
       }
     },
-    "/products/{id}/reviews": {
+    "/product-service/products/{id}/reviews": {
       "get": {
         "tags": [
           "products",
@@ -267,7 +267,7 @@
         ]
       }
     },
-    "/reviews": {
+    "/product-service/reviews": {
       "post": {
         "tags": ["reviews"],
         "summary": "Create new review",
@@ -296,7 +296,7 @@
         "parameters": []
       }
     },
-    "/reviews/{id}": {
+    "/product-service/reviews/{id}": {
       "patch": {
         "tags": [
           "reviews"
@@ -522,12 +522,6 @@
       },
       "ReviewUpdateRequest": {
         "type": "object",
-        "required": [
-          "firstName",
-          "lastName",
-          "reviewText",
-          "rating"
-        ],
         "additionalProperties": false,
         "properties": {
           "firstName": {

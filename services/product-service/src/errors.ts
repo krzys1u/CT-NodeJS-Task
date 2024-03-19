@@ -21,11 +21,3 @@ export class NotFound extends Error {
     this.status = 404
   }
 }
-
-export class BadRequest extends Error {
-  constructor (message = 'Bad Request') {
-    super(message)
-
-    this.status = 400
-  }
-}

@@ -1,4 +1,4 @@
-import express, { type Express } from 'express'
+import express, { type Express, Router } from 'express'
 import * as OpenApiValidator from 'express-openapi-validator'
 import { createProductController } from './controllers/productController'
 import { createProductReviewsController } from './controllers/productReviewsController'
@@ -15,16 +15,18 @@ export const createApp = (db: DataSource, productReviewChangeListener: ChangeEmi
 
   const swaggerDocument: string = fs.readFileSync('./services/product-service/api.json', 'utf8')
 
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(JSON.parse(swaggerDocument) as JsonObject))
+  const productController = createProductController(db)
+  const productReviewsController = createProductReviewsController(db, productReviewChangeListener)
+
+  const router = Router()
+
+  app.use('/product-service/api-docs', swaggerUi.serve, swaggerUi.setup(JSON.parse(swaggerDocument) as JsonObject))
 
   app.use(express.json())
   app.use(instanceIdMiddleware)
   app.use(onlyJSONContentType)
 
-  const productController = createProductController(db)
-  const productReviewsController = createProductReviewsController(db, productReviewChangeListener)
-
-  app.use(
+  router.use(
     OpenApiValidator.middleware({
       apiSpec: './services/product-service/api.json',
       validateRequests: true,
@@ -33,8 +35,10 @@ export const createApp = (db: DataSource, productReviewChangeListener: ChangeEmi
     })
   )
 
-  app.use('/products', productController)
-  app.use('/reviews', productReviewsController)
+  router.use('/products', productController)
+  router.use('/reviews', productReviewsController)
+
+  app.use('/product-service', router)
 
   app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
     res.status(err.status ?? 500)

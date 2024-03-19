@@ -3,7 +3,7 @@ import { type DataSource } from 'typeorm'
 import { Product } from '../models/Product'
 import { Review } from '../models/Review'
 import { generateLinkForResource } from '../utils'
-import { NotFound } from '../errors'
+import { BadRequest, NotFound } from '../errors'
 import { type ChangeEmitter, EVENTS } from '../aspects/productReviewChangeListener'
 
 export const createProductReviewsController = (db: DataSource, productReviewChangeListener: ChangeEmitter): Router => {
@@ -11,6 +11,11 @@ export const createProductReviewsController = (db: DataSource, productReviewChan
 
   router.post('/', async (req, res, next) => {
     const productId = parseInt(req.body.product as string)
+    const rating = req.body.rating
+
+    if (rating < 1 || rating > 5) {
+      next(new BadRequest('Rating have to be between 1 and 5')); return
+    }
 
     const reviewRepository = db.getRepository(Review)
     const productRepository = db.getRepository(Product)
@@ -76,6 +81,11 @@ export const createProductReviewsController = (db: DataSource, productReviewChan
   router.patch('/:id', async (req, res, next) => {
     const id = parseInt(req.params.id)
     const body = req.body
+    const rating = body.rating
+
+    if (rating < 1 || rating > 5) {
+      next(new BadRequest('Rating have to be between 1 and 5')); return
+    }
 
     const reviewRepository = db.getRepository(Review)
 

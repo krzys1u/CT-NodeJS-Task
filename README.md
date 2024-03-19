@@ -3,8 +3,6 @@ The goal of this project is to create two microservices to allow storing product
 in database and recalculate average rating of products once new reviews are added to system.
 
 
-
-
 # Description
 This application is a simple monorepo with two microservices:
 
@@ -41,6 +39,8 @@ It would allow us to do not pass review ID in request body but pass it as path p
     - Get all ratings for product
     - Calculate average rating
     - Save rating to product table in `product-service` database
+- As rating format wasn't specified i've decided to make a rating integer value in scale 1-5
+
 
 # Used technologies
 - nodeJS
@@ -82,6 +82,8 @@ copy `example.env` and name it `.env` then run
 Microservices will be available under `localhost` at `80` port
 - `http://localhost/product-services` is url of *Product Service*
 - `http://localhost/review-processing-service` is url of *Review Processing Service*
+
+There is a interactive api docs available under `http://localhost/product-service/api-docs/`
 
 Each microservice is running in 2 instances there is a header `x-instance-id` returned with each request
 to check which instance handled request

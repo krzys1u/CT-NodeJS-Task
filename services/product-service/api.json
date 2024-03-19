@@ -18,6 +18,11 @@
       "description": "Products reviews"
     }
   ],
+  "servers": [
+    {
+      "url": "http://localhost/product-service"
+    }
+  ],
   "paths": {
     "/products": {
       "get": {
@@ -94,7 +99,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
+                  "$ref": "#/components/schemas/404ErrorMessage"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/415ErrorMessage"
                 }
               }
             }
@@ -137,7 +152,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
+                  "$ref": "#/components/schemas/404ErrorMessage"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/415ErrorMessage"
                 }
               }
             }
@@ -169,7 +194,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
+                  "$ref": "#/components/schemas/404ErrorMessage"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/415ErrorMessage"
                 }
               }
             }
@@ -209,7 +244,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
+                  "$ref": "#/components/schemas/404ErrorMessage"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/415ErrorMessage"
                 }
               }
             }
@@ -252,40 +297,6 @@
       }
     },
     "/reviews/{id}": {
-      "get": {
-        "tags": [
-          "reviews"
-        ],
-        "summary": "Representation of single Review",
-        "operationId": "getReview",
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ReviewResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
-                }
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/id"
-          }
-        ]
-      },
       "patch": {
         "tags": [
           "reviews"
@@ -317,7 +328,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
+                  "$ref": "#/components/schemas/404ErrorMessage"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/415ErrorMessage"
                 }
               }
             }
@@ -331,7 +352,7 @@
       },
       "delete": {
         "tags": [
-          "review"
+          "reviews"
         ],
         "summary": "Deletion of single review",
         "operationId": "deleteReview",
@@ -349,7 +370,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorMessage"
+                  "$ref": "#/components/schemas/404ErrorMessage"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/415ErrorMessage"
                 }
               }
             }
@@ -453,7 +484,8 @@
           "firstName",
           "lastName",
           "reviewText",
-          "rating"
+          "rating",
+          "product"
         ],
         "additionalProperties": false,
         "properties": {
@@ -476,6 +508,14 @@
             "type": "integer",
             "format": "int32",
             "description": "Rating of product",
+            "example": 4,
+            "minimum": 1,
+            "maximum": 5
+          },
+          "product": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Id of product",
             "example": 4
           }
         }
@@ -509,7 +549,9 @@
             "type": "integer",
             "format": "int32",
             "description": "Rating of product",
-            "example": 4
+            "example": 4,
+            "minimum": 1,
+            "maximum": 5
           }
         }
       },
@@ -545,12 +587,22 @@
           }
         }
       },
-      "ErrorMessage": {
+
+      "404ErrorMessage": {
         "type": "object",
         "properties": {
           "message": {
             "type": "string",
-            "example": "Something bad happened"
+            "example": "Not Found"
+          }
+        }
+      },
+      "415ErrorMessage": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Unsupported Media Type"
           }
         }
       }

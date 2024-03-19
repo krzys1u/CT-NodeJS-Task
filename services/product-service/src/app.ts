@@ -7,8 +7,15 @@ import { instanceIdMiddleware } from './middlewares/instanceIdMiddleware'
 import { onlyJSONContentType } from './middlewares/onlyJSONContentType'
 import { type ChangeEmitter } from './aspects/productReviewChangeListener'
 
+import swaggerUi, { type JsonObject } from 'swagger-ui-express'
+import fs from 'fs'
+
 export const createApp = (db: DataSource, productReviewChangeListener: ChangeEmitter): Express => {
   const app = express()
+
+  const swaggerDocument: string = fs.readFileSync('./services/product-service/api.json', 'utf8')
+
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(JSON.parse(swaggerDocument) as JsonObject))
 
   app.use(express.json())
   app.use(instanceIdMiddleware)

@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4997d7da-a590-410b-9f17-f725f8f378df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/services/product-service/api.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/types/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/types/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/api.json" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/api.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/app.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/src/controllers/productReviewsController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/controllers/productReviewsController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/errors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/middlewares/onlyJSONContentType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/middlewares/onlyJSONContentType.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

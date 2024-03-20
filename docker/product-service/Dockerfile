@@ -21,4 +21,4 @@ WORKDIR /usr/product-service
 
 COPY --from=0 /opt/build ./
 
-CMD ["node", "--enable-source-maps", "services/product-service/dist/index.js"]
+CMD ["node", "--enable-source-maps", "services/product-service/dist/src/index.js"]

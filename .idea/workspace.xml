@@ -2,22 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4997d7da-a590-410b-9f17-f725f8f378df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/services/product-service/src/db/queue.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/review-processing-service/src/config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/review-processing-service/src/db/queue.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/review-processing-service/src/logger.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/review-processing-service/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/product-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/product-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/review-processing-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/review-processing-service/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example.env" beforeDir="false" afterPath="$PROJECT_DIR$/example.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/src/aspects/productReviewChangeListener.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/aspects/productReviewChangeListener.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/db/cache.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/db/cache.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/db/queue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/db/queue.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/review-processing-service/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/review-processing-service/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/tests/productReviews.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/tests/productReviews.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/tests/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/tests/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/review-processing-service/src/db/queue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/review-processing-service/src/db/queue.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,33 +46,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/kstozek/IdeaProjects/CT-NodeJS-Task/services/review-processing-service/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "nodejs_package_manager_path": "yarn",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "/Users/kstozek/IdeaProjects/CT-NodeJS-Task/node_modules/typescript/lib"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kstozek/IdeaProjects/CT-NodeJS-Task/services/review-processing-service/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/kstozek/IdeaProjects/CT-NodeJS-Task/node_modules/typescript/lib&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ],
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "JavaScript"
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JavaScript&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/services/review-processing-service/src" />

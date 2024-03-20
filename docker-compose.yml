@@ -68,4 +68,7 @@ services:
     ports:
       - 5672:5672
       - 15672:15672
+    environment:
+      CLOUDAMQP_URL: "${RABBIT_URL}"
+
 

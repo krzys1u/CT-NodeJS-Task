@@ -1,30 +1,31 @@
-import {logger} from "../logger";
+import { logger } from '../logger'
 
-const amqplib = require('amqplib');
+import amqplib, { type Message } from 'amqplib'
 
-import type {RabbitConfig} from "../../types";
+import type { RabbitConfig } from '../../types'
 //
 // export interface QueueClient {
 //     send: (value: string) => void
 // }
 
 export const createQueueClient = async (config: RabbitConfig): Promise<void> => {
-    const queue = 'productReviews';
+  const queue = 'productReviews'
 
-    const conn = await amqplib.connect(config.url);
+  console.log('config', config)
 
-    const channel = await conn.createChannel();
+  const conn = await amqplib.connect(config.url)
 
-    await channel.assertQueue(queue);
+  const channel = await conn.createChannel()
 
-    // Listener
-    channel.consume(queue, (msg: any) => {
-        if (msg !== null) {
-            logger.log('Received:', msg.content.toString());
-            channel.ack(msg);
-        } else {
-            logger.log('Consumer cancelled by server');
-        }
-    });
+  await channel.assertQueue(queue)
+
+  // Listener
+  await channel.consume(queue, (msg: Message | null) => {
+    if (msg !== null) {
+      logger.log('Received:', msg.content.toString())
+      channel.ack(msg)
+    } else {
+      logger.log('Consumer cancelled by server')
+    }
+  })
 }
-

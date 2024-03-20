@@ -31,7 +31,10 @@ describe('Product reviews get', () => {
   })
 
   afterEach(async () => {
+    console.log('product.id', product.id)
     await deleteProduct(product.id!)
+
+    delete product.id
   })
 
   test('Should return all reviews for product', async () => {
@@ -82,6 +85,8 @@ describe('Product reviews cache', () => {
   })
 
   afterEach(async () => {
+    console.log('product.id2', product.id)
+
     await deleteProduct(product.id!)
 
     for (const review of reviews) {

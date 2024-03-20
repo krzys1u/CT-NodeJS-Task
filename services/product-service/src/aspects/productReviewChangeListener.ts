@@ -2,7 +2,7 @@ import EventEmitter from 'events'
 import type { ReviewChangeEmitterEventPayload } from '@ct-nodejs-task/types'
 import type { CacheClient } from '../db/cache'
 import { logger } from '../logger'
-import type {QueueClient} from "../db/queue";
+import type { QueueClient } from '../db/queue'
 
 export const EVENTS = {
   CREATED: 'ProductReview_CREATED',
@@ -23,7 +23,7 @@ export const createProductReviewChangeListener = (cache: CacheClient, queue: Que
 
       await cache.deleteValue(`${productId}`)
 
-      queue.send(JSON.parse({
+      queue.send(JSON.stringify({
         eventName,
         ...payload
       }))

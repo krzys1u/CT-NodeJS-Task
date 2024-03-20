@@ -1,5 +1,6 @@
 import { beforeEach, afterEach, describe, expect, test } from 'vitest'
 import {
+  type ApiError,
   buildProduct,
   buildReview,
   createProduct,
@@ -20,7 +21,7 @@ describe('Review creating', () => {
   })
 
   afterEach(async () => {
-    await deleteProduct(product.id)
+    await deleteProduct(product.id!)
   })
 
   test('Should create new Review', async () => {
@@ -34,7 +35,7 @@ describe('Review creating', () => {
     expect(body.reviewText).toEqual(review.reviewText)
     expect(body.rating).toEqual(review.rating)
 
-    await deleteReview(body.id)
+    await deleteReview(body.id!)
   })
 
   test('Should fail on validation during new Review creation', async () => {
@@ -47,7 +48,7 @@ describe('Review creating', () => {
 
     expect(status).toEqual(400)
 
-    expect(body.message).toEqual('request.body should have required property \'product\'')
+    expect((body as ApiError).message).toEqual('request.body should have required property \'product\'')
   })
 
   test('Should fail on validation during new Review creation because of rating not between 1-5', async () => {
@@ -58,7 +59,7 @@ describe('Review creating', () => {
 
     expect(status).toEqual(400)
 
-    expect(body.message).toEqual('request.body.rating should be >= 1')
+    expect((body as ApiError).message).toEqual('request.body.rating should be >= 1')
   })
 })
 
@@ -78,8 +79,8 @@ describe('Update review', () => {
   })
 
   afterEach(async () => {
-    await deleteReview(review.id)
-    await deleteProduct(product.id)
+    await deleteReview(review.id!)
+    await deleteProduct(product.id!)
 
     delete review.id
     delete product.id
@@ -88,7 +89,7 @@ describe('Update review', () => {
   test('Should update review data', async () => {
     const newReviewText = `${review.reviewText} - Edited`
 
-    const { status, body } = await updateReview(review.id, {
+    const { status, body } = await updateReview(review.id!, {
       reviewText: newReviewText
     })
 
@@ -108,17 +109,16 @@ describe('Update review', () => {
 
     expect(status).toEqual(404)
 
-    expect(body.message).toEqual('Not Found')
+    expect((body as ApiError).message).toEqual('Not Found')
   })
 
   test('Should return validation error because of wrong body typing', async () => {
-    const { status, body } = await updateReview(1234321, {
-      rating: 'abc'
-    })
+    // @ts-expect-error - i need to test validation of wrong data type here
+    const { status, body } = await updateReview(1234321, { rating: 'abc' })
 
     expect(status).toEqual(400)
 
-    expect(body.message).toEqual('request.body.rating should be integer')
+    expect((body as ApiError).message).toEqual('request.body.rating should be integer')
   })
 
   test('Should return validation error because of rating not between 1-5', async () => {
@@ -128,7 +128,7 @@ describe('Update review', () => {
 
     expect(status).toEqual(400)
 
-    expect(body.message).toEqual('request.body.rating should be <= 5')
+    expect((body as ApiError).message).toEqual('request.body.rating should be <= 5')
   })
 })
 
@@ -148,11 +148,11 @@ describe('Delete review', () => {
   })
 
   afterEach(async () => {
-    await deleteProduct(product.id)
+    await deleteProduct(product.id!)
   })
 
   test('Should delete review', async () => {
-    const { status, body } = await deleteReview(review.id)
+    const { status, body } = await deleteReview(review.id!)
 
     expect(status).toEqual(200)
     expect(body).toEqual('OK')
@@ -164,6 +164,6 @@ describe('Delete review', () => {
     const { status, body } = await deleteReview(reviewId)
 
     expect(status).toEqual(404)
-    expect(JSON.parse(body).message).toEqual('Not Found')
+    expect(JSON.parse(body as string).message).toEqual('Not Found')
   })
 })

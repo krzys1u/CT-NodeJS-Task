@@ -89,6 +89,12 @@ There is a interactive api docs available under `http://localhost/product-servic
 Each microservice is running in 2 instances there is a header `x-instance-id` returned with each request
 to check which instance handled request
 
+# Commands
+- `npm run lint` - lint codebase
+- `npm run lint:fix` - lint with fix of fixable problems
+- `npm run build` - transpile TS to JS
+- `npm run test` - run tests
+
 # Tests
 To run tests first you need to run all containers using command `docker compose up -d `
 After that run `npm run test`
@@ -100,11 +106,18 @@ I believe ORM and validation library is well tested as well as express.
 I've written few e2e tests which just call endpoints and check results,
 Tests are self cleaning but before production deployment i would suggest to prevent from running it in other envs than local
 
+# Caching
+There was a requirement in specification to cache Product reviews and average product ratings,
+I've decided to cache only product reviews as average rating is stored as column in product table
+So if i want to cache average rating i have to cache whole product so almost whole APi
+There is a header returned in response which helps to determine if response is from cache or not - `x-cache-hit`
 
-# Commands
-- `npm run lint` - lint codebase
-- `npm run lint:fix` - lint with fix of fixable problems
-- `npm run build` - transpile TS to JS
+I used redis to cache Product reviews, caching algorithm is simple:
+1. If there is no cache entry for product ID
+   - get product reviews from database
+   - save product reviews to database with configureable TTL (set 5 minutes in config)
+2. If there is entry in cahce for product ID - return it
+3. If Product review is created, modified or deleted - entry is removed from cache
 
 # Future development
 ## Config 

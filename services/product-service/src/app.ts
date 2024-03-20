@@ -9,13 +9,14 @@ import { type ChangeEmitter } from './aspects/productReviewChangeListener'
 
 import swaggerUi, { type JsonObject } from 'swagger-ui-express'
 import fs from 'fs'
+import type { CacheClient } from './db/cache'
 
-export const createApp = (db: DataSource, productReviewChangeListener: ChangeEmitter): Express => {
+export const createApp = (db: DataSource, productReviewChangeListener: ChangeEmitter, cache: CacheClient): Express => {
   const app = express()
 
   const swaggerDocument: string = fs.readFileSync('./services/product-service/api.json', 'utf8')
 
-  const productController = createProductController(db)
+  const productController = createProductController(db, cache)
   const productReviewsController = createProductReviewsController(db, productReviewChangeListener)
 
   const router = Router()

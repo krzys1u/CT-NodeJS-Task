@@ -2,24 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4997d7da-a590-410b-9f17-f725f8f378df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/services/product-service/tests/productReviews.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/tests/products.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/tests/reviews.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/product-service/tests/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vitest.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product-service/src/db/cache.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/product-service/src/logger.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.lintstagedrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.lintstagedrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example.env" beforeDir="false" afterPath="$PROJECT_DIR$/example.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/createReview.http" beforeDir="false" afterPath="$PROJECT_DIR$/examples/createReview.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/getProductReviews.http" beforeDir="false" afterPath="$PROJECT_DIR$/examples/getProductReviews.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/api.json" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/api.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/controllers/productReviewsController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/controllers/productReviewsController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/errors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/errors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turbo.json" beforeDir="false" afterPath="$PROJECT_DIR$/turbo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/aspects/productReviewChangeListener.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/aspects/productReviewChangeListener.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/controllers/productController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/controllers/productController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/tests/productReviews.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/tests/productReviews.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/tests/products.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/tests/products.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/tests/reviews.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/tests/reviews.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/tests/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/tests/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

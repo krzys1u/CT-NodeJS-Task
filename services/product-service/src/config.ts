@@ -13,5 +13,11 @@ export const config: Config = {
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
     host: process.env.DB_HOST
+  },
+  redis: {
+    host: process.env.REDIS_HOST,
+    port: process.env.REDIS_PORT,
+    password: process.env.REDIS_PASSWORD,
+    cacheTime: process.env.CACHE_TIME
   }
 }

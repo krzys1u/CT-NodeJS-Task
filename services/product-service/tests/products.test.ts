@@ -1,5 +1,6 @@
 import { beforeAll, afterAll, beforeEach, afterEach, describe, expect, test } from 'vitest'
 import {
+  type ApiError,
   buildProduct,
   createProduct,
   deleteProduct,
@@ -7,6 +8,7 @@ import {
   getProducts,
   updateProduct
 } from './utils'
+import type { Product } from '@ct-nodejs-task/types'
 
 describe('Product creating', () => {
   test('Should create new Product', async () => {
@@ -23,7 +25,7 @@ describe('Product creating', () => {
     expect(body.averageRating).toEqual(0)
     expect(body.reviews).toEqual([])
 
-    await deleteProduct(body.id)
+    await deleteProduct(body.id!)
   })
 
   test('Should fail on validation during new Product creation', async () => {
@@ -37,7 +39,7 @@ describe('Product creating', () => {
 
     expect(status).toEqual(400)
 
-    expect(body.message).toEqual('request.body should have required property \'price\'')
+    expect((body as ApiError).message).toEqual('request.body should have required property \'price\'')
   })
 })
 
@@ -57,7 +59,7 @@ describe('Product list endpoint', () => {
 
   afterAll(async () => {
     for (const product of products) {
-      await deleteProduct(product.id)
+      await deleteProduct(product.id!)
     }
   })
 
@@ -67,7 +69,7 @@ describe('Product list endpoint', () => {
     expect(status).toEqual(200)
 
     for (const product of products) {
-      const productFromDB = body.find(item => item.id === product.id)
+      const productFromDB = body.find(item => item.id === product.id) as Product
 
       expect(product.id).toEqual(productFromDB.id)
       expect(product.name).toEqual(productFromDB.name)
@@ -87,7 +89,7 @@ describe('Product list endpoint', () => {
 
     expect(status).toEqual(400)
 
-    expect(body.message).toEqual('request.body should have required property \'price\'')
+    expect((body as ApiError).message).toEqual('request.body should have required property \'price\'')
   })
 })
 
@@ -101,13 +103,13 @@ describe('Get product', () => {
   })
 
   afterEach(async () => {
-    await deleteProduct(product.id)
+    await deleteProduct(product.id!)
 
     delete product.id
   })
 
   test('Should return product data', async () => {
-    const { status, body } = await getProduct(product.id)
+    const { status, body } = await getProduct(product.id!)
 
     expect(status).toEqual(200)
 
@@ -123,7 +125,7 @@ describe('Get product', () => {
 
     expect(status).toEqual(404)
 
-    expect(body.message).toEqual('Not Found')
+    expect((body as ApiError).message).toEqual('Not Found')
   })
 })
 
@@ -137,7 +139,7 @@ describe('Update product', () => {
   })
 
   afterEach(async () => {
-    await deleteProduct(product.id)
+    await deleteProduct(product.id!)
 
     delete product.id
   })
@@ -145,7 +147,7 @@ describe('Update product', () => {
   test('Should update product data', async () => {
     const newDescription = `${product.description} - Edited`
 
-    const { status, body } = await updateProduct(product.id, {
+    const { status, body } = await updateProduct(product.id!, {
       description: newDescription
     })
 
@@ -165,17 +167,16 @@ describe('Update product', () => {
 
     expect(status).toEqual(404)
 
-    expect(body.message).toEqual('Not Found')
+    expect((body as ApiError).message).toEqual('Not Found')
   })
 
   test('Should return validation error because of wrong body typing', async () => {
-    const { status, body } = await updateProduct(1234321, {
-      price: 'abc'
-    })
+    // @ts-expect-error i need to test validation of wrong body typing
+    const { status, body } = await updateProduct(1234321, { price: 'abc' })
 
     expect(status).toEqual(400)
 
-    expect(body.message).toEqual('request.body.price should be integer')
+    expect((body as ApiError).message).toEqual('request.body.price should be integer')
   })
 })
 
@@ -189,7 +190,7 @@ describe('Delete product', () => {
   })
 
   test('Should delete product', async () => {
-    const { status, body } = await deleteProduct(product.id)
+    const { status, body } = await deleteProduct(product.id!)
 
     expect(status).toEqual(200)
     expect(body).toEqual('OK')
@@ -201,12 +202,12 @@ describe('Delete product', () => {
     const { body, status } = await deleteProduct(productId)
 
     expect(status).toEqual(404)
-    expect(JSON.parse(body).message).toEqual('Not Found')
+    expect(JSON.parse(body as string).message).toEqual('Not Found')
 
     const getResponse = await getProduct(productId)
 
     expect(getResponse.status).toEqual(404)
 
-    expect(getResponse.body.message).toEqual('Not Found')
+    expect((getResponse.body as ApiError).message).toEqual('Not Found')
   })
 })

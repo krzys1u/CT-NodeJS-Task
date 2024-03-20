@@ -4,8 +4,9 @@ import { Product } from '../models/Product'
 import { MethodNotAllowedError, NotFound } from '../errors'
 import { generateLinkForResource } from '../utils'
 import { Review } from '../models/Review'
+import type { CacheClient } from '../db/cache'
 
-export const createProductController = (db: DataSource): Router => {
+export const createProductController = (db: DataSource, cache: CacheClient): Router => {
   const router = Router()
 
   router.post('/', async (req, res) => {
@@ -92,6 +93,16 @@ export const createProductController = (db: DataSource): Router => {
   router.get('/:id/reviews', async (req, res, next) => {
     const id = parseInt(req.params.id)
 
+    const cachedReviews = (await cache.getValue(`${id}`))!
+
+    if (cachedReviews?.length > 0) {
+      res.status(200)
+      res.setHeader('x-cache-hit', 'hit')
+      res.send(JSON.parse(cachedReviews))
+
+      return
+    }
+
     const productRepository = db.getRepository(Product)
 
     const product = await productRepository.findOneBy({ id })
@@ -108,7 +119,10 @@ export const createProductController = (db: DataSource): Router => {
       }
     })
 
+    await cache.setValue(`${id}`, JSON.stringify(reviews))
+
     res.status(200)
+    res.setHeader('x-cache-hit', 'miss')
     res.send(reviews)
   })
 

@@ -11,6 +11,9 @@ services:
       mode: replicated
       replicas: 2
     restart: unless-stopped
+    depends_on:
+      - postgres
+      - cache
 
   review-processing-service:
     ports:
@@ -22,6 +25,9 @@ services:
       mode: replicated
       replicas: 2
     restart: unless-stopped
+    depends_on:
+      - postgres
+      - cache
 
   nginx:
     image: nginx:latest
@@ -41,3 +47,15 @@ services:
       POSTGRES_USER: "${DB_USER}"
       POSTGRES_PASSWORD: "${DB_PASSWORD}"
       POSTGRES_DB: "${DB_DATABASE}"
+
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning --requirepass ${REDIS_PASSWORD}
+    environment:
+      REDIS_HOST: "${REDIS_HOST}"
+      REDIS_PORT: "${REDIS_PORT}"
+      REDIS_USER: "${REDIS_USER}"
+      REDIS_PASSWORD: "${REDIS_PASSWORD}"

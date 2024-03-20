@@ -165,8 +165,6 @@ describe('Product reviews cache', () => {
       lastName: 'Deo'
     })
 
-    console.log('newReview', newReview)
-
     const secondRequest = await getProductReviews(product.id!)
 
     const matchingReview = (secondRequest.body as Review[]).find(item => item.id === newReview.body.id)!

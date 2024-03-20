@@ -58,6 +58,9 @@ export const callApi = async <T>(
     }
   )
 
+  console.log('response', response)
+  console.log('responseTransformer', responseTransformer)
+
   const responseBody = (await response[responseTransformer]()) as T
 
   return {

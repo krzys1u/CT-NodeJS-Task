@@ -17,7 +17,7 @@ FROM node:20-alpine
 LABEL name "ct-nodejs-task review-processing-service"
 LABEL version "0.1.0"
 
-WORKDIR /usr/product-service
+WORKDIR /usr/review-processing-service
 
 COPY --from=0 /opt/build ./
 

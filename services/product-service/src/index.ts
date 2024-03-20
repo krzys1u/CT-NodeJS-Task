@@ -12,14 +12,18 @@ const dataSource = createDataSource(config.database)
 
 dataSource.initialize().then(async () => {
   const cache = await createCacheClient(config.redis)
-  console.log('try to create queue client')
+
   const queue = await createQueueClient(config.rabbit)
+
+  if (queue === undefined) { // rabbit starts slowly, if it's not ready quit and let docker compose restart app
+    return process.exit(1)
+  }
 
   const productReviewChangeListener = createProductReviewChangeListener(cache, queue)
 
   const app = createApp(dataSource, productReviewChangeListener, cache)
 
   app.listen(process.env.SERVICE_PORT, function () {
-    logger.log(`[${config.instanceId}] Product service app is listening on port ${process.env.SERVICE_PORT}!`)
+    logger.log(`Product service app is listening on port ${process.env.SERVICE_PORT}!`)
   })
-}).catch(error => { logger.error(`[${config.instanceId}] Database initialisation error`, error) })
+}).catch(error => { logger.error('Database initialisation error', error) })

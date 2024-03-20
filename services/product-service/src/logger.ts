@@ -5,7 +5,7 @@ const { instanceId } = config
 type LogFunc = (...params: any[]) => void
 
 const prefixMessage = (func: LogFunc, args: any[]): void => {
-  func(...[`[${instanceId}`, ...args])
+  func(...[`[${instanceId}]`, ...args])
 }
 
 export const logger = {

@@ -4,15 +4,14 @@
     <list default="true" id="4997d7da-a590-410b-9f17-f725f8f378df" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/product-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/product-service/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/review-processing-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/review-processing-service/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example.env" beforeDir="false" afterPath="$PROJECT_DIR$/example.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/src/aspects/productReviewChangeListener.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/aspects/productReviewChangeListener.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/src/db/queue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/db/queue.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/product-service/tests/productReviews.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/tests/productReviews.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/product-service/src/logger.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/src/logger.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/product-service/tests/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/product-service/tests/utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/review-processing-service/src/db/queue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/review-processing-service/src/db/queue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/review-processing-service/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/review-processing-service/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/review-processing-service/src/logger.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/review-processing-service/src/logger.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

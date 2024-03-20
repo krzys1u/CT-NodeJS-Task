@@ -20,7 +20,7 @@ export const createCacheClient = async (config: RedisConfig): Promise<CacheClien
 
   try {
     await redisClient.connect()
-    logger.info('Connected to Redis successfully!', 'a', 'b', 'c')
+    logger.info('Connected to Redis successfully!')
   } catch (e) {
     logger.error('Connection to Redis failed with error:')
     logger.error(e)

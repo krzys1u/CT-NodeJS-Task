@@ -1,15 +1,16 @@
-import dotenv from 'dotenv'
 
 import { createApp } from './app'
-import crypto from 'crypto'
-dotenv.config()
+import {logger} from "./logger";
+import { config } from './config'
+import {createQueueClient} from "./db/queue";
 
-const instanceId = crypto.randomUUID()
+(async () => {
+  const app = createApp()
 
-process.env.CT_INSTANCE_ID = instanceId
+  const queue = await createQueueClient(config.rabbit);
 
-const app = createApp()
+  app.listen(process.env.SERVICE_PORT, function () {
 
-app.listen(process.env.SERVICE_PORT, function () {
-  console.log(`[${instanceId}] Review processing service app is listening on port ${process.env.SERVICE_PORT}!`)
-})
+    logger.log(`Review processing service app is listening on port ${process.env.SERVICE_PORT}!`)
+  })
+})();

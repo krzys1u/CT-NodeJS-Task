@@ -83,6 +83,8 @@ describe('Product reviews cache', () => {
     }
 
     product.id = body.id
+
+    await setTimeout(500)
   })
 
   afterEach(async () => {

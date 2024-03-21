@@ -3,13 +3,13 @@ version: "3.7"
 services:
   product-service:
     ports:
-      - "3000:${SERVICE_PORT}"
+      - "3000-3001:${SERVICE_PORT}"
     build:
       context: ./
       dockerfile: docker/product-service/Dockerfile
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 2
     restart: unless-stopped
     depends_on:
       - postgres

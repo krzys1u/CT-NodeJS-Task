@@ -21,6 +21,7 @@ export const config: Config = {
     cacheTime: process.env.CACHE_TIME
   },
   rabbit: {
-    url: process.env.RABBIT_URL
+    url: process.env.RABBIT_URL,
+    productReviewsUpdateQueue: process.env.PRODUCT_REVIEWS_UPDATE_QUEUE
   }
 }

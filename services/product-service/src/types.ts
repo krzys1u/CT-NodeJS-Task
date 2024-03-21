@@ -14,6 +14,7 @@ declare global {
       REDIS_PASSWORD: string
       CACHE_TIME: string
       RABBIT_URL: string
+      PRODUCT_REVIEWS_UPDATE_QUEUE: string
     }
   }
 }
@@ -34,6 +35,7 @@ export interface RedisConfig {
 
 export interface RabbitConfig {
   url: string
+  productReviewsUpdateQueue: string
 }
 
 export interface Config {

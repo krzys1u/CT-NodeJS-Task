@@ -1,34 +1,56 @@
+import { setTimeout } from 'node:timers/promises'
+
 import { logger } from '../logger'
 
-import amqplib, { type Message } from 'amqplib'
+import amqplib, { type Connection, type Message } from 'amqplib'
 
 import type { RabbitConfig } from '../../types'
-//
-// export interface QueueClient {
-//     send: (value: string) => void
-// }
 
-export const createQueueClient = async (config: RabbitConfig): Promise<void> => {
-  const queue = 'productReviews'
+type QueueHandler = (data: string) => Promise<void>
 
-  try {
-    const conn = await amqplib.connect(config.url)
+export interface QueueClient {
+  registerHandler: (queue: string, handler: QueueHandler) => Promise<void>
+}
 
-    const channel = await conn.createChannel()
+const createRabbitConnection = async (url: string): Promise<Connection> => {
+  let retries = 0
+  while (true) {
+    logger.info('trying to connect to rabbit', 'attempt', retries + 1)
 
-    await channel.assertQueue(queue)
+    if (retries > 0) {
+      await setTimeout(5000)
+    }
 
-    // Listener
-    await channel.consume(queue, (msg: Message | null) => {
-      if (msg !== null) {
-        logger.log('Received:', msg.content.toString())
-        channel.ack(msg)
-      } else {
-        logger.log('Consumer cancelled by server')
-      }
-    })
-  } catch (e) {
-    logger.error('CONSUMER ERROR', e)
-    process.exit(1)
+    retries++
+
+    try {
+      const conn = await amqplib.connect(url)
+
+      return conn
+    } catch (e) {
+      logger.error('CONSUMER ERROR', 'retrying')
+    }
+  }
+}
+
+export const createQueueClient = async (config: RabbitConfig): Promise<QueueClient> => {
+  const conn = await createRabbitConnection(config.url)
+
+  return {
+    registerHandler: async (queue, handler): Promise<void> => {
+      const channel = await conn.createChannel()
+
+      await channel.assertQueue(queue)
+
+      await channel.consume(queue, async (msg: Message | null) => {
+        if (msg !== null) {
+          await handler(msg.content.toString())
+
+          channel.ack(msg)
+        } else {
+          logger.log('Consumer cancelled by server')
+        }
+      })
+    }
   }
 }

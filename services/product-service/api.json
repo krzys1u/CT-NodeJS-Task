@@ -442,6 +442,12 @@
             "format": "int32",
             "description": "Product price",
             "example": 1
+          },
+          "averageRating": {
+            "type": "number",
+            "format": "double",
+            "description": "Average rating of product",
+            "example": 3.5
           }
         }
       },
@@ -471,7 +477,7 @@
             "example": 1
           },
           "averageRating": {
-            "type": "integer",
+            "type": "number",
             "format": "double",
             "description": "Product average rating",
             "example": 5.5

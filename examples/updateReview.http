@@ -1,11 +1,11 @@
-PATCH http://localhost/product-service/reviews/1
+PATCH http://localhost/product-service/reviews/67
 Content-Type: application/json
 
 {
   "firstName": "Jane",
   "lastName": "doe",
   "reviewText": "This is my review - changed",
-  "rating": 5
+  "rating": 4
 }
 
 ###

@@ -81,6 +81,10 @@ export const createProductController = (db: DataSource, cache: CacheClient): Rou
       next(new NotFound()); return
     }
 
+    if (body.averageRating !== undefined) {
+      await cache.deleteValue(`${id}`)
+    }
+
     const newProduct = await productRepository.save({ id, ...body })
 
     res.status(200)
@@ -95,7 +99,9 @@ export const createProductController = (db: DataSource, cache: CacheClient): Rou
 
     const cachedReviews = (await cache.getValue(`${id}`))!
 
-    if (cachedReviews?.length > 0) {
+    const skipCache = req.headers['x-skip-cache']
+
+    if (cachedReviews?.length > 0 && skipCache === undefined) {
       res.status(200)
       res.setHeader('x-cache-hit', 'hit')
       res.send(JSON.parse(cachedReviews))
@@ -119,7 +125,9 @@ export const createProductController = (db: DataSource, cache: CacheClient): Rou
       }
     })
 
-    await cache.setValue(`${id}`, JSON.stringify(reviews))
+    if (skipCache === undefined) {
+      await cache.setValue(`${id}`, JSON.stringify(reviews))
+    }
 
     res.status(200)
     res.setHeader('x-cache-hit', 'miss')

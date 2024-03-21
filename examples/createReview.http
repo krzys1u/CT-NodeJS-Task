@@ -6,7 +6,7 @@ Content-Type: application/json
   "lastName": "doe",
   "reviewText": "This is my review",
   "rating": 5,
-  "product": 1
+  "product": 2
 }
 
 ###

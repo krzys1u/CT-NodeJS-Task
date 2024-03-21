@@ -9,6 +9,7 @@ const instanceId = crypto.randomUUID()
 export const config: Config = {
   instanceId,
   rabbit: {
-    url: process.env.RABBIT_URL
+    url: process.env.RABBIT_URL,
+    productReviewsUpdateQueue: process.env.PRODUCT_REVIEWS_UPDATE_QUEUE
   }
 }

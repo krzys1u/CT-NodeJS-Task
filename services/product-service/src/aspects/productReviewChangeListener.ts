@@ -21,12 +21,12 @@ export const createProductReviewChangeListener = (cache: CacheClient, queue: Que
     eventEmitter.on(eventName, async (payload) => {
       const { productId } = payload
 
-      await cache.deleteValue(`${productId}`)
-
       queue.send(JSON.stringify({
-        eventName,
-        ...payload
+        event: eventName,
+        payload
       }))
+
+      await cache.deleteValue(`${productId}`)
 
       logger.info('action', eventName, payload)
     })

@@ -19,6 +19,6 @@ export class Product implements IProduct {
   @OneToMany(() => Review, (review) => review.product) // note: we will create author property in the Photo class below
     reviews!: Review[]
 
-  @Column()
+  @Column({ type: 'float' })
     averageRating!: number
 }

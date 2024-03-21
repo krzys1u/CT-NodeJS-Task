@@ -2,6 +2,10 @@
 The goal of this project is to create two microservices to allow storing product info and product reviews
 in database and recalculate average rating of products once new reviews are added to system.
 
+I've decided to write this as simple as possible that's why i used express instead of for example NestJS
+Only big libary is typeORM as i wanted to try it. 
+Most of the code follows Dependency Injection pattern so code is reusable, easy to maintain and develop
+Monorepo allow us to have shared dependencies (Single Responsibility Principle)
 
 # Description
 This application is a simple monorepo with two microservices:
@@ -53,6 +57,7 @@ It would allow us to do not pass review ID in request body but pass it as path p
 - Postgres
 - OpenApi schema validation
 - Vitest
+- RabbitMQ
 
 # Project structure
 Project is a monorepo which contains one shared package with types and two services
@@ -89,6 +94,9 @@ There is a interactive api docs available under `http://localhost/product-servic
 Each microservice is running in 2 instances there is a header `x-instance-id` returned with each request
 to check which instance handled request
 
+Docker compose build can take up to 3-4 minutes,
+Applications need around 30s to start (because of rabbitMQ cold start)
+
 # Commands
 - `npm run lint` - lint codebase
 - `npm run lint:fix` - lint with fix of fixable problems
@@ -118,6 +126,11 @@ I used redis to cache Product reviews, caching algorithm is simple:
    - save product reviews to database with configureable TTL (set 5 minutes in config)
 2. If there is entry in cahce for product ID - return it
 3. If Product review is created, modified or deleted - entry is removed from cache
+
+# RabbitMQ
+RabbitMQ is used to asynchronously send command to review-processing-service to recalculate averageRating
+of product. It gives us a guarantee that we send message once and only one instance of review-processing-service
+get this message and perform recalculation
 
 # Future development
 ## Config 

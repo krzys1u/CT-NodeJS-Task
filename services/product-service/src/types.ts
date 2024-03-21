@@ -13,6 +13,8 @@ declare global {
       REDIS_PORT: string
       REDIS_PASSWORD: string
       CACHE_TIME: string
+      RABBIT_URL: string
+      PRODUCT_REVIEWS_UPDATE_QUEUE: string
     }
   }
 }
@@ -31,8 +33,14 @@ export interface RedisConfig {
   cacheTime: string
 }
 
+export interface RabbitConfig {
+  url: string
+  productReviewsUpdateQueue: string
+}
+
 export interface Config {
   instanceId: string
   database: DBConfig
   redis: RedisConfig
+  rabbit: RabbitConfig
 }

@@ -1,15 +1,17 @@
-import dotenv from 'dotenv'
-
 import { createApp } from './app'
-import crypto from 'crypto'
-dotenv.config()
+import { logger } from './logger'
+import { config } from './config'
+import { createQueueClient } from './db/queue'
+import { reviewChangeHandler } from './handlers/reviewChangeHandler';
 
-const instanceId = crypto.randomUUID()
+(async () => {
+  const app = createApp()
 
-process.env.CT_INSTANCE_ID = instanceId
+  const { registerHandler } = await createQueueClient(config.rabbit)
 
-const app = createApp()
+  await registerHandler(config.rabbit.productReviewsUpdateQueue, reviewChangeHandler)
 
-app.listen(process.env.SERVICE_PORT, function () {
-  console.log(`[${instanceId}] Review processing service app is listening on port ${process.env.SERVICE_PORT}!`)
-})
+  app.listen(process.env.SERVICE_PORT, function () {
+    logger.log(`Review processing service app is listening on port ${process.env.SERVICE_PORT}!`)
+  })
+})().catch(e => { logger.error('Initialisation error', e) })

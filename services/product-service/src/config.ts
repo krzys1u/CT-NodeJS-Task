@@ -19,5 +19,9 @@ export const config: Config = {
     port: process.env.REDIS_PORT,
     password: process.env.REDIS_PASSWORD,
     cacheTime: process.env.CACHE_TIME
+  },
+  rabbit: {
+    url: process.env.RABBIT_URL,
+    productReviewsUpdateQueue: process.env.PRODUCT_REVIEWS_UPDATE_QUEUE
   }
 }

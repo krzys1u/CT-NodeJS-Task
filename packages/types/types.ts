@@ -20,3 +20,8 @@ export interface ReviewChangeEmitterEventPayload {
   reviewId: number
   productId: number
 }
+
+export interface ReviewChangeEmitterMessagePayload {
+  event: string
+  payload: ReviewChangeEmitterEventPayload
+}

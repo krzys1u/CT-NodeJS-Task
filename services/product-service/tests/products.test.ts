@@ -59,7 +59,9 @@ describe('Product list endpoint', () => {
 
   afterAll(async () => {
     for (const product of products) {
-      await deleteProduct(product.id!)
+      if (product.id !== undefined) {
+        await deleteProduct(product.id)
+      }
     }
   })
 

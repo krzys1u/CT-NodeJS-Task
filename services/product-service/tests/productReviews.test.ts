@@ -4,9 +4,10 @@ import {
   buildProduct,
   buildReview,
   createProduct, createReview,
-  deleteProduct, deleteReview,
+  deleteProduct, deleteReview, getProduct,
   getProductReviews, type Review, updateReview
 } from './utils'
+import { setTimeout } from 'node:timers/promises'
 
 describe('Product reviews get', () => {
   const product = buildProduct('Test Product', 'Test description', 123)
@@ -31,7 +32,10 @@ describe('Product reviews get', () => {
   })
 
   afterEach(async () => {
-    await deleteProduct(product.id!)
+    if (product.id !== undefined) {
+      await deleteProduct(product.id)
+    }
+    delete product.id
   })
 
   test('Should return all reviews for product', async () => {
@@ -82,8 +86,9 @@ describe('Product reviews cache', () => {
   })
 
   afterEach(async () => {
-    await deleteProduct(product.id!)
-
+    if (product.id !== undefined) {
+      await deleteProduct(product.id)
+    }
     for (const review of reviews) {
       delete review.id
     }
@@ -198,5 +203,99 @@ describe('Product reviews cache', () => {
     expect(secondRequest.headers.get('x-cache-hit')).toEqual('miss')
 
     expect(matchingReview).toEqual(undefined)
+  })
+})
+
+describe('Product average rating update', () => {
+  const product = buildProduct('Test Product', 'Test description', 123)
+  const reviews = [
+    buildReview('John', 'Doe', 'Review text', 1),
+    buildReview('Jane', 'Deo', 'Review 2 text', 4)
+  ]
+
+  beforeEach(async () => {
+    const resp = await createProduct(product)
+
+    const body = resp.body
+
+    for (const review of reviews) {
+      review.product = body.id
+
+      const newReview = await createReview(review)
+
+      review.id = newReview.body.id
+    }
+
+    product.id = body.id
+
+    await setTimeout(500)
+  })
+
+  afterEach(async () => {
+    if (product.id !== undefined) {
+      await deleteProduct(product.id)
+    }
+    for (const review of reviews) {
+      delete review.id
+    }
+
+    delete product.id
+  })
+
+  test('Should return proper average rating for product', async () => {
+    await setTimeout(500)
+
+    const { body } = await getProduct(product.id!)
+
+    expect(body.averageRating).toEqual(2.5)
+  })
+
+  test('Should update averageReview when new review is added', async () => {
+    const { body } = await getProduct(product.id!)
+
+    expect(body.averageRating).toEqual(2.5)
+
+    await createReview({
+      ...buildReview(
+        'Jax', 'Dee', 'Review text 3', 4
+      ),
+      product: product.id
+    })
+
+    await setTimeout(500)
+
+    const secondRequest = await getProduct(product.id!)
+
+    expect(secondRequest.body.averageRating).toEqual(3)
+  })
+
+  test('Should update averageRating when review is updated', async () => {
+    const { body } = await getProduct(product.id!)
+
+    expect(body.averageRating).toEqual(2.5)
+
+    await updateReview((reviews[1]!).id!, {
+      rating: 3
+    })
+
+    await setTimeout(500)
+
+    const secondRequest = await getProduct(product.id!)
+
+    expect(secondRequest.body.averageRating).toEqual(2)
+  })
+
+  test('Should update averageRating when review is deleted', async () => {
+    const { body } = await getProduct(product.id!)
+
+    expect(body.averageRating).toEqual(2.5)
+
+    await deleteReview((reviews[0]!).id!)
+
+    await setTimeout(500)
+
+    const secondRequest = await getProduct(product.id!)
+
+    expect(secondRequest.body.averageRating).toEqual(4)
   })
 })

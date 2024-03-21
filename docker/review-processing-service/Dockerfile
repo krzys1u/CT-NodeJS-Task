@@ -21,4 +21,4 @@ WORKDIR /usr/review-processing-service
 
 COPY --from=0 /opt/build ./
 
-CMD ["node", "--enable-source-maps", "services/review-processing-service/dist/index.js"]
+CMD ["node", "--enable-source-maps", "services/review-processing-service/dist/src/index.js"]

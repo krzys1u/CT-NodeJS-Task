@@ -3,17 +3,18 @@ version: "3.7"
 services:
   product-service:
     ports:
-      - "3000-3001:${SERVICE_PORT}"
+      - "3000:${SERVICE_PORT}"
     build:
       context: ./
       dockerfile: docker/product-service/Dockerfile
     deploy:
       mode: replicated
-      replicas: 2
+      replicas: 1
     restart: unless-stopped
     depends_on:
       - postgres
       - cache
+      - rabbitmq
 
   review-processing-service:
     ports:
@@ -28,6 +29,7 @@ services:
     depends_on:
       - postgres
       - cache
+      - rabbitmq
 
   nginx:
     image: nginx:latest
@@ -59,3 +61,14 @@ services:
       REDIS_PORT: "${REDIS_PORT}"
       REDIS_USER: "${REDIS_USER}"
       REDIS_PASSWORD: "${REDIS_PASSWORD}"
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      CLOUDAMQP_URL: "${RABBIT_URL}"
+
+
